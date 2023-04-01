@@ -8,11 +8,13 @@ import Error from "../pages/Error";
 import { ReactComponent as HomeIcon } from "../assets/images/home.svg";
 import { ReactComponent as User } from "../assets/images/user.svg";
 import { ReactComponent as Bag } from "../assets/images/bag.svg";
+import Clothes from "../assets/images/clothes.jpg";
+import Clothes2 from "../assets/images/clothes2.jpg";
 
 export const routes = [
-  { path: "/", page: <Login /> },
+  { path: "/login", page: <Login /> },
   { path: "/register", page: <Register /> },
-  { path: "/dashboard", page: <Home /> },
+  { path: "/", page: <Home /> },
   { path: "/shop", page: <Shop /> },
   { path: "/my-shop", page: <MyShop /> },
   { path: "/profile", page: <Profile /> },
@@ -23,4 +25,13 @@ export const navbarList = [
   { route: "/dashboard", icon: <HomeIcon /> },
   { route: "/profile", icon: <User /> },
   { route: "/my-shop", icon: <Bag /> },
+];
+
+export const SliderData = [
+  {
+    image: Clothes,
+  },
+  {
+    image: Clothes2,
+  },
 ];
