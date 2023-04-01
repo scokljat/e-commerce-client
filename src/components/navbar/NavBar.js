@@ -11,12 +11,18 @@ import {
   BagContainer,
   StyledNavLink,
 } from "./NavBarStyle";
+import SideBar from "../sidebar/SideBar";
 
 function NavBar() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   return (
     <Wrapper>
-      <Menu />
+      <Menu
+        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+        style={{ cursor: "pointer" }}
+      />
+      {sidebarIsOpen && <SideBar />}
       <Container>
         <InputContainer>
           <input placeholder="Search..." />

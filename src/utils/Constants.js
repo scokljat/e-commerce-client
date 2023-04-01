@@ -35,3 +35,15 @@ export const SliderData = [
     image: Clothes2,
   },
 ];
+
+export const sidebarList = [
+  { name: "View all" },
+  { name: "Dresses" },
+  { name: "Tops" },
+  { name: "Shirts" },
+  { name: "Pants" },
+  { name: "Jeans" },
+  { name: "Jackets" },
+  { name: "Skirts" },
+  { name: "Shoes" },
+];
