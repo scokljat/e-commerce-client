@@ -37,13 +37,13 @@ export const SliderData = [
 ];
 
 export const sidebarList = [
-  { name: "View all" },
-  { name: "Dresses" },
-  { name: "Tops" },
-  { name: "Shirts" },
-  { name: "Pants" },
-  { name: "Jeans" },
-  { name: "Jackets" },
-  { name: "Skirts" },
-  { name: "Shoes" },
+  { name: "View all", path: "/shop?category=view-all" },
+  { name: "Dresses", path: "/shop?category=dresses" },
+  { name: "Tops", path: "/shop?category=tops" },
+  { name: "Shirts", path: "/shop?category=shirts" },
+  { name: "Pants", path: "/shop?category=pants" },
+  { name: "Jeans", path: "/shop?category=jeans" },
+  { name: "Jackets", path: "/shop?category=jackets" },
+  { name: "Skirts", path: "/shop?category=skirts" },
+  { name: "Shoes", path: "/shop?category=shoes" },
 ];

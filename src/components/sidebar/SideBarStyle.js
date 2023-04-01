@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -14,13 +15,19 @@ export const StyledList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+  padding-top: 10px;
 
   li {
     padding: 10px 20px;
-    cursor: pointer;
   }
+`;
 
-  li:hover {
+export const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
+
+  :hover {
     color: #f0408d;
   }
 `;
