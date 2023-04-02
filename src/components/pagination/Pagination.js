@@ -1,13 +1,16 @@
-import { useState } from "react";
 import { PaginationContainer } from "./PaginationStyle";
 
-function Pagination({ totalProducts, productsPerPage }) {
-  const [currentPage, setCurrentPage] = useState(1);
+function Pagination({
+  totalProducts,
+  productsPerPage,
+  currentPage,
+  setCurrentPage,
+}) {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i);
   }
-  console.log(currentPage);
+
   return (
     <PaginationContainer>
       {pageNumbers.map((number) => (
