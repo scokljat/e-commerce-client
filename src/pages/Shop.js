@@ -36,24 +36,36 @@ function Shop() {
     <Wrapper>
       {searchParams.get("category") === "view-all" ? (
         <>
-          <GridContainer>
-            {paginatedProducts?.map((product) => (
-              <Card product={product} />
-            ))}
-          </GridContainer>
-          <Pagination
-            totalProducts={products.length}
-            productsPerPage={9}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
+          {!paginatedProducts.length ? (
+            <p>No products in the shop.</p>
+          ) : (
+            <>
+              <GridContainer>
+                {paginatedProducts?.map((product) => (
+                  <Card product={product} />
+                ))}
+              </GridContainer>
+              <Pagination
+                totalProducts={products.length}
+                productsPerPage={9}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              />
+            </>
+          )}
         </>
       ) : (
-        <GridContainer>
-          {filteredProducts?.map((product) => (
-            <Card product={product} />
-          ))}
-        </GridContainer>
+        <>
+          {!filteredProducts.length ? (
+            <p>No products in this category.</p>
+          ) : (
+            <GridContainer>
+              {filteredProducts?.map((product) => (
+                <Card product={product} />
+              ))}
+            </GridContainer>
+          )}
+        </>
       )}
     </Wrapper>
   );
