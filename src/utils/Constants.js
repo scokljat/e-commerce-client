@@ -37,13 +37,15 @@ export const SliderData = [
 ];
 
 export const sidebarList = [
-  { name: "View all", path: "/shop?category=view-all" },
-  { name: "Dresses", path: "/shop?category=dresses" },
-  { name: "Tops", path: "/shop?category=tops" },
-  { name: "Shirts", path: "/shop?category=shirts" },
-  { name: "Pants", path: "/shop?category=pants" },
-  { name: "Jeans", path: "/shop?category=jeans" },
-  { name: "Jackets", path: "/shop?category=jackets" },
-  { name: "Skirts", path: "/shop?category=skirts" },
-  { name: "Shoes", path: "/shop?category=shoes" },
+  { name: "View all", path: "/shop?category=View-all", category: "View-all" },
+  { name: "Dresses", path: "/shop?category=Dresses", category: "Dresses" },
+  { name: "Tops", path: "/shop?category=Tops", category: "Tops" },
+  { name: "Shirts", path: "/shop?category=Shirts", category: "Shirts" },
+  { name: "Pants", path: "/shop?category=Pants", category: "Pants" },
+  { name: "Jeans", path: "/shop?category=Jeans", category: "Jeans" },
+  { name: "Jackets", path: "/shop?category=Jackets", category: "Jackets" },
+  { name: "Skirts", path: "/shop?category=Skirts", category: "Skirts" },
+  { name: "Shoes", path: "/shop?category=Shoes", category: "Shoes" },
 ];
+
+export const selectOptions = ["S", "M", "L"];
