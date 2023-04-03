@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import Pagination from "../components/pagination/Pagination";
-import Card from "../components/card/Card";
-import { sidebarList } from "../utils/Constants";
-import { GridContainer } from "../components/card/CardStyle";
+import Pagination from "../../components/pagination/Pagination";
+import Card from "../../components/card/Card";
+import { sidebarList } from "../../utils/Constants";
 import {
   getFilteredProducts,
   getPaginatedProducts,
   getProducts,
-} from "../store/products/productSlice";
-import { Description, Wrapper } from "./ShopStyle";
+} from "../../store/products/productSlice";
+import { Description, Wrapper, GridContainer } from "./ShopStyle";
 
 function Shop() {
   const dispatch = useDispatch();
