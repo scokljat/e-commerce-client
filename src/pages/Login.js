@@ -1,6 +1,11 @@
 import { useForm } from "react-hook-form";
 import { StyledButton } from "../globalStyle";
-import { StyledForm, StyledInput, ErrorDescription } from "./LoginStyle";
+import {
+  StyledForm,
+  StyledInput,
+  ErrorDescription,
+  StyledLink,
+} from "./LoginStyle";
 
 function Login() {
   const {
@@ -44,6 +49,10 @@ function Login() {
         <ErrorDescription>{errors.password.message}</ErrorDescription>
       )}
       <StyledButton type="submit">Login</StyledButton>
+      <p>
+        Don't have an account ?{" "}
+        <StyledLink to="/register">Register here</StyledLink>
+      </p>
     </StyledForm>
   );
 }

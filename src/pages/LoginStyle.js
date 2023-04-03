@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
@@ -5,6 +6,10 @@ export const StyledForm = styled.form`
   flex-direction: column;
   gap: 20px;
   width: 40%;
+
+  p {
+    align-self: center;
+  }
 `;
 
 export const StyledInput = styled.input`
@@ -14,7 +19,12 @@ export const StyledInput = styled.input`
   padding: 0px 10px;
   outline: none;
 `;
+
 export const ErrorDescription = styled.p`
   color: #f0408d;
   margin: 0;
+`;
+
+export const StyledLink = styled(NavLink)`
+  color: #f0408d;
 `;
