@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 export const GridContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 30px;
 `;
 
 export const Description = styled.p`
