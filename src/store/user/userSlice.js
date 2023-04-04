@@ -11,6 +11,16 @@ export const registerUser = createAsyncThunk("register", async (user) => {
   }
 });
 
+export const loginUser = createAsyncThunk("login", async (user) => {
+  try {
+    const res = await UsersServices.loginUser(user);
+
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const slice = createSlice({
   name: "user",
   initialState: {
@@ -19,6 +29,10 @@ const slice = createSlice({
   reducers: {},
   extraReducers: {
     [registerUser.fulfilled]: (state, action) => {
+      localStorage.setItem("token", action.payload);
+      state.isLoggedIn = true;
+    },
+    [loginUser.fulfilled]: (state, action) => {
       localStorage.setItem("token", action.payload);
       state.isLoggedIn = true;
     },

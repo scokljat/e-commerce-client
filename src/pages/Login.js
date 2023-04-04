@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../store/user/userSlice";
 import { StyledButton } from "../globalStyle";
 import {
   StyledForm,
@@ -8,6 +10,8 @@ import {
 } from "./LoginStyle";
 
 function Login() {
+  const dispatch = useDispatch();
+
   const {
     handleSubmit,
     register,
@@ -16,7 +20,7 @@ function Login() {
   } = useForm();
 
   const onSubmit = (values) => {
-    console.log(values);
+    dispatch(loginUser(values));
     reset();
   };
 
