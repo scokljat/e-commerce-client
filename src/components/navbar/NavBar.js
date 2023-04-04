@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { ReactComponent as Menu } from "../../assets/images/menu.svg";
 import { ReactComponent as User } from "../../assets/images/user.svg";
 import { ReactComponent as Search } from "../../assets/images/search.svg";
 import { ReactComponent as Bag } from "../../assets/images/bag.svg";
 import { ReactComponent as Home } from "../../assets/images/home.svg";
+import SideBar from "../sidebar/SideBar";
 import {
   Wrapper,
   Container,
@@ -11,18 +13,18 @@ import {
   BagContainer,
   StyledNavLink,
 } from "./NavBarStyle";
-import SideBar from "../sidebar/SideBar";
 
 function NavBar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
+  const { isLoggedIn } = useSelector((state) => state.user);
+  const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
+
   return (
     <Wrapper>
       <Menu
-        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+        onClick={() => setSideBarIsOpen(!sideBarIsOpen)}
         style={{ cursor: "pointer" }}
       />
-      {sidebarIsOpen && <SideBar />}
+      {sideBarIsOpen && <SideBar setSideBarIsOpen={setSideBarIsOpen} />}
       <Container>
         <InputContainer>
           <input placeholder="Search..." />
@@ -46,7 +48,6 @@ function NavBar() {
           </>
         ) : (
           <>
-            {" "}
             <StyledNavLink to="/login">Log in</StyledNavLink>
           </>
         )}
