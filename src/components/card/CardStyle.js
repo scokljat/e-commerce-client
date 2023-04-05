@@ -29,10 +29,6 @@ export const Overlay = styled.div`
   position: relative;
   bottom: 127px;
   opacity: 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-right: 20px;
 
   :hover {
     opacity: 1;
@@ -42,4 +38,13 @@ export const Overlay = styled.div`
     fill: #000;
     cursor: pointer;
   }
+`;
+
+export const OverlayContainer = styled.div`
+  display: flex;
+  justify-content: ${({ isMyShop }) =>
+    isMyShop ? "space-between" : "flex-end"};
+  align-items: center;
+  height: 100%;
+  padding: 0px 20px;
 `;
