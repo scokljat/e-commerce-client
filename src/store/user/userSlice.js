@@ -21,20 +21,38 @@ export const loginUser = createAsyncThunk("login", async (user) => {
   }
 });
 
+export const getUserById = createAsyncThunk("getUserById", async (id) => {
+  try {
+    const res = await UsersServices.getUserById(id);
+
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const slice = createSlice({
   name: "user",
   initialState: {
     isLoggedIn: localStorage.getItem("token") ? true : false,
+    user: {},
   },
   reducers: {},
   extraReducers: {
     [registerUser.fulfilled]: (state, action) => {
-      localStorage.setItem("token", action.payload);
-      state.isLoggedIn = true;
+      if (action.payload) {
+        localStorage.setItem("token", action.payload);
+        state.isLoggedIn = true;
+      }
     },
     [loginUser.fulfilled]: (state, action) => {
-      localStorage.setItem("token", action.payload);
-      state.isLoggedIn = true;
+      if (action.payload) {
+        localStorage.setItem("token", action.payload);
+        state.isLoggedIn = true;
+      }
+    },
+    [getUserById.fulfilled]: (state, action) => {
+      state.user = action.payload;
     },
   },
 });

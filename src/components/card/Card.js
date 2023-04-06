@@ -11,7 +11,13 @@ import {
   OverlayContainer,
 } from "./CardStyle";
 
-export default function Card({ product, setModalIsOpen, size }) {
+export default function Card({
+  product,
+  setModalIsOpen,
+  size,
+  setProductId,
+  boughtProductId,
+}) {
   const [sizeBoxIsOpen, setSizeBoxIsOpen] = useState(false);
   const location = useLocation();
 
@@ -29,10 +35,13 @@ export default function Card({ product, setModalIsOpen, size }) {
         >
           {location.pathname === "/my-shop" ? (
             <>
-              <p>Size {size}</p>
+              <h1>{size}</h1>
               <Bin
                 style={{ width: "24px", height: "24px" }}
-                onClick={() => setModalIsOpen(true)}
+                onClick={() => {
+                  setModalIsOpen(true);
+                  setProductId(boughtProductId);
+                }}
               />
             </>
           ) : (

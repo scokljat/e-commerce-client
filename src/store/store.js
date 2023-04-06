@@ -5,7 +5,6 @@ import user from "./user/userSlice";
 import products from "./products/productSlice";
 
 const reducer = combineReducers({
-  // here we will be adding reducers
   user,
   products,
 });

@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { ReactComponent as Close } from "../../assets/images/bx-x.svg";
 import { selectOptions } from "../../utils/Constants";
 import { useOnClickOutside } from "../../utils/FunctionOnClickOutside";
-import { addProduct } from "../../store/boughtProducts/boughtProductsSlice";
 import { getUserById } from "../../store/user/userSlice";
+import { addProductToBag } from "../../store/products/productSlice";
 import { Container, Size, SizeContainer } from "./SizeBoxStyle";
 import { StyledButton } from "../../globalStyle";
 
@@ -33,7 +33,7 @@ function SizeBox({ setSizeBoxIsOpen, productId }) {
       <StyledButton
         onClick={() => {
           dispatch(
-            addProduct({ userId: 1, productId: productId, size: size })
+            addProductToBag({ userId: 1, productId: productId, size: size })
           ).then(() => dispatch(getUserById(1)));
 
           setSizeBoxIsOpen(false);

@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { ReactComponent as Close } from "../../assets/images/bx-x.svg";
 import Modal from "../modal/Modal";
 import { Wrapper, ButtonContainer } from "./DeleteContentStyle";
-import { deleteBoughtProduct } from "../../store/boughtProducts/boughtProductsSlice";
+import { deleteProductFromBag } from "../../store/products/productSlice";
 import { getUserById } from "../../store/user/userSlice";
 import { StyledButton } from "../../globalStyle";
 
@@ -19,7 +19,7 @@ export default function DeleteContent({ setModalIsOpen, productId }) {
         <ButtonContainer>
           <StyledButton
             onClick={() => {
-              dispatch(deleteBoughtProduct(productId)).then(() =>
+              dispatch(deleteProductFromBag(productId)).then(() =>
                 dispatch(getUserById(1))
               );
             }}
