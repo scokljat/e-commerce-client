@@ -17,6 +17,7 @@ import {
 function NavBar() {
   const { isLoggedIn } = useSelector((state) => state.user);
   const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
+  const { user } = useSelector((state) => state.user);
 
   return (
     <Wrapper>
@@ -40,10 +41,9 @@ function NavBar() {
             </StyledNavLink>
             <BagContainer>
               <StyledNavLink to="/my-shop">
-                {" "}
                 <Bag />
               </StyledNavLink>
-              <p>0</p>
+              <p>{user?.boughtProducts?.length}</p>
             </BagContainer>
           </>
         ) : (
