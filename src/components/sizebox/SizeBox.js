@@ -32,8 +32,10 @@ function SizeBox({ setSizeBoxIsOpen, productId }) {
       </SizeContainer>
       <StyledButton
         onClick={() => {
-          dispatch(addProduct({ userId: 1, productId: productId, size: size }));
-          dispatch(getUserById(1));
+          dispatch(
+            addProduct({ userId: 1, productId: productId, size: size })
+          ).then(() => dispatch(getUserById(1)));
+
           setSizeBoxIsOpen(false);
         }}
       >
