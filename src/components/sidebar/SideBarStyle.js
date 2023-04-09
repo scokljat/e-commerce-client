@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   background: #fff;
   z-index: 1;
   position: absolute;
-  height: 100%;
+  height: 90vh;
   width: 200px;
   top: 10vh;
   left: 0;
@@ -18,16 +18,38 @@ export const StyledList = styled.ul`
   padding-top: 10px;
 
   li {
-    padding: 10px 20px;
+    padding: 10px 30px;
   }
 `;
 
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   cursor: pointer;
-  color: #000;
+  color: ${({ active }) => (active ? " #f0408d" : "#000")};
 
   :hover {
     color: #f0408d;
+  }
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  border: 1px solid #6f6f6f;
+  border-radius: 5px;
+  padding: 5px;
+  width: 70%;
+  margin: 10px 20px;
+
+  input {
+    height: 30px;
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 80%;
+  }
+
+  svg {
+    fill: #6f6f6f;
   }
 `;
