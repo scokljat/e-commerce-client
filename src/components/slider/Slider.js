@@ -22,18 +22,33 @@ function Slider() {
   }
 
   return (
-    <Container>
-      <ArrowLeft onClick={prevSlide}>Previous</ArrowLeft>
-      {SliderData.map((slide, index) => {
-        return (
-          <SlidesContainer key={index}>
-            {index === current && <Image src={slide.image} alt="" />}
-          </SlidesContainer>
-        );
-      })}
+    <>
+      <Container>
+        <ArrowLeft onClick={prevSlide}>Previous</ArrowLeft>
+        {SliderData.map((slide, index) => {
+          return (
+            <SlidesContainer key={index}>
+              {index === current && <Image src={slide} alt="" />}
+            </SlidesContainer>
+          );
+        })}
 
-      <ArrowRight onClick={nextSlide}>Next</ArrowRight>
-    </Container>
+        <ArrowRight onClick={nextSlide}>Next</ArrowRight>
+      </Container>
+      <section style={{ display: "flex", gap: "5px" }}>
+        {Array.from({ length: SliderData.length }, (_, i) => (
+          <div
+            key={i}
+            style={{
+              height: "8px",
+              width: "10px",
+              borderRadius: "50%",
+              background: current === i ? "#f0408d" : "#6f6f6f",
+            }}
+          />
+        ))}
+      </section>
+    </>
   );
 }
 
