@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../store/user/userSlice";
+import jwtDecode from "jwt-decode";
+import { getUserById, registerUser } from "../store/user/userSlice";
 import { StyledButton } from "../globalStyle";
 import {
   StyledForm,
@@ -11,6 +13,7 @@ import {
 
 function Register() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     handleSubmit,
@@ -20,7 +23,11 @@ function Register() {
   } = useForm();
 
   const onSubmit = (values) => {
-    dispatch(registerUser(values));
+    dispatch(registerUser(values)).then(() => {
+      dispatch(getUserById(jwtDecode(localStorage.getItem("token")).id));
+      navigate("/");
+    });
+
     reset();
   };
 

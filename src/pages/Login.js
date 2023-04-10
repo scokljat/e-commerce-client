@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../store/user/userSlice";
+import jwtDecode from "jwt-decode";
+import { getUserById, loginUser } from "../store/user/userSlice";
 import { StyledButton } from "../globalStyle";
 import {
   StyledForm,
@@ -11,6 +13,7 @@ import {
 
 function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     handleSubmit,
@@ -20,7 +23,10 @@ function Login() {
   } = useForm();
 
   const onSubmit = (values) => {
-    dispatch(loginUser(values));
+    dispatch(loginUser(values)).then(() => {
+      dispatch(getUserById(jwtDecode(localStorage.getItem("token")).id));
+      navigate("/");
+    });
     reset();
   };
 
