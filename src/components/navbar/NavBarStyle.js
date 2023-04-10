@@ -16,34 +16,27 @@ export const Container = styled.div`
   svg {
     cursor: pointer;
   }
-`;
 
-export const InputContainer = styled.div`
-  display: flex;
-  align-items: center;
-  border: 1px solid #6f6f6f;
-  border-radius: 5px;
-  padding: 5px;
-
-  input {
-    height: 30px;
-    background: transparent;
-    border: none;
-    outline: none;
-  }
-
-  svg {
-    fill: #6f6f6f;
+  h3 {
+    font-size: 15px;
+    font-weight: 200;
+    cursor: pointer;
+    color: #6f6f6f;
+    padding-bottom: 3px;
   }
 `;
 
 export const BagContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 3px;
 
   p {
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    padding-bottom: 3px;
+    color: #f0408d;
   }
 `;
 

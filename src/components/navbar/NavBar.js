@@ -1,23 +1,20 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as Menu } from "../../assets/images/menu.svg";
 import { ReactComponent as User } from "../../assets/images/user.svg";
-import { ReactComponent as Search } from "../../assets/images/search.svg";
 import { ReactComponent as Bag } from "../../assets/images/bag.svg";
 import { ReactComponent as Home } from "../../assets/images/home.svg";
 import SideBar from "../sidebar/SideBar";
-import {
-  Wrapper,
-  Container,
-  InputContainer,
-  BagContainer,
-  StyledNavLink,
-} from "./NavBarStyle";
+import { logout } from "../../store/user/userSlice";
+import { Wrapper, Container, BagContainer, StyledNavLink } from "./NavBarStyle";
 
 function NavBar() {
   const { isLoggedIn } = useSelector((state) => state.user);
   const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
   const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <Wrapper>
@@ -27,10 +24,6 @@ function NavBar() {
       />
       {sideBarIsOpen && <SideBar setSideBarIsOpen={setSideBarIsOpen} />}
       <Container>
-        <InputContainer>
-          <input placeholder="Search..." />
-          <Search />
-        </InputContainer>
         {isLoggedIn ? (
           <>
             <StyledNavLink to="/">
@@ -43,11 +36,22 @@ function NavBar() {
               <StyledNavLink to="/my-shop">
                 <Bag />
               </StyledNavLink>
-              <p>{user?.boughtProducts?.length}</p>
+              <p>{user?.bagProducts?.length}</p>
             </BagContainer>
+            <h3
+              onClick={() => {
+                dispatch(logout());
+                navigate("/login");
+              }}
+            >
+              Log out
+            </h3>
           </>
         ) : (
           <>
+            <StyledNavLink to="/" style={{ marginTop: "5px" }}>
+              <Home />
+            </StyledNavLink>
             <StyledNavLink to="/login">Log in</StyledNavLink>
           </>
         )}
