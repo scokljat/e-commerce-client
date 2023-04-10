@@ -17,11 +17,12 @@ function MyShop() {
   const [productId, setProductId] = useState(0);
   const dispatch = useDispatch();
 
+  const { user } = useSelector((state) => state.user);
   const { userProducts } = useSelector((state) => state.products);
 
   useEffect(() => {
-    dispatch(getUserProducts(1));
-  }, [dispatch]);
+    dispatch(getUserProducts(user?.id));
+  }, [dispatch, user]);
 
   let totalPrice = userProducts?.reduce(function (prev, current) {
     return prev + +current.product.price;
@@ -32,17 +33,17 @@ function MyShop() {
       {modalIsOpen && (
         <DeleteContent setModalIsOpen={setModalIsOpen} productId={productId} />
       )}
-      {!userProducts.length ? (
+      {!userProducts?.length ? (
         <Description>Nothing in this bag.</Description>
       ) : (
         <>
           <GridContainer>
-            {userProducts.map((product) => (
+            {userProducts?.map((product) => (
               <Card
-                key={product.id}
-                boughtProductId={product.id}
-                product={product.product}
-                size={product.size}
+                key={product?.id}
+                bagProductId={product?.id}
+                product={product?.product}
+                size={product?.size}
                 setModalIsOpen={setModalIsOpen}
                 setProductId={setProductId}
               />
