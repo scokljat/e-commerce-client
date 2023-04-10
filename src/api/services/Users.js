@@ -15,6 +15,11 @@ const UsersServices = {
     const url = `/users/${id}`;
     return axios.get(url);
   },
+
+  editUser: (user) => {
+    const url = "/users/edit";
+    return axios.put(url, user);
+  },
 };
 
 export default UsersServices;
