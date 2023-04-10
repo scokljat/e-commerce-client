@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as Close } from "../../assets/images/bx-x.svg";
 import Modal from "../modal/Modal";
 import { Wrapper, ButtonContainer } from "./DeleteContentStyle";
@@ -8,6 +8,7 @@ import { StyledButton } from "../../globalStyle";
 
 export default function DeleteContent({ setModalIsOpen, productId }) {
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
   return (
     <Modal setModalIsOpen={setModalIsOpen}>
       <Wrapper>
@@ -20,7 +21,7 @@ export default function DeleteContent({ setModalIsOpen, productId }) {
           <StyledButton
             onClick={() => {
               dispatch(deleteProductFromBag(productId)).then(() =>
-                dispatch(getUserById(1))
+                dispatch(getUserById(user.id))
               );
             }}
           >
