@@ -39,7 +39,7 @@ function Shop() {
     <Wrapper>
       {category === "View-all" ? (
         <>
-          {!paginatedProducts.length ? (
+          {!paginatedProducts?.length ? (
             <Description>No products in the shop.</Description>
           ) : (
             <>
@@ -59,7 +59,7 @@ function Shop() {
         </>
       ) : (
         <>
-          {!filteredProducts.length ? (
+          {!filteredProducts?.length ? (
             <Description>No products in this category.</Description>
           ) : (
             <GridContainer>
