@@ -20,5 +20,5 @@ export const Content = styled.div`
   border-radius: 0.5rem;
   cursor: default;
   width: 30%;
-  height: 30%;
+  height: 35%;
 `;
