@@ -1,17 +1,20 @@
 import { useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import jwtDecode from "jwt-decode";
 import { routes } from "./utils/Constants";
 import NavBar from "./components/navbar/NavBar";
+import { getUserById } from "./store/user/userSlice";
 import { MainContainer } from "./globalStyle";
 import "./App.css";
-import { getUserById } from "./store/user/userSlice";
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUserById(1));
+    if (localStorage.getItem("token")) {
+      dispatch(getUserById(jwtDecode(localStorage.getItem("token")).id));
+    }
   }, [dispatch]);
 
   return (
