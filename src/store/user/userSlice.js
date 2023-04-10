@@ -31,13 +31,29 @@ export const getUserById = createAsyncThunk("getUserById", async (id) => {
   }
 });
 
+export const editUser = createAsyncThunk("editUser", async (user) => {
+  try {
+    const res = await UsersServices.editUser(user);
+
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const slice = createSlice({
   name: "user",
   initialState: {
     isLoggedIn: localStorage.getItem("token") ? true : false,
     user: {},
   },
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      localStorage.removeItem("token");
+      state.user = {};
+      state.isLoggedIn = false;
+    },
+  },
   extraReducers: {
     [registerUser.fulfilled]: (state, action) => {
       if (action.payload) {
@@ -54,6 +70,11 @@ const slice = createSlice({
     [getUserById.fulfilled]: (state, action) => {
       state.user = action.payload;
     },
+    [editUser.fulfilled]: (state, action) => {
+      state.user = action.payload;
+    },
   },
 });
+
+export const { logout } = slice.actions;
 export default slice.reducer;
