@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as Close } from "../../assets/images/bx-x.svg";
 import { selectOptions } from "../../utils/Constants";
 import { useOnClickOutside } from "../../utils/FunctionOnClickOutside";
@@ -12,6 +12,8 @@ function SizeBox({ setSizeBoxIsOpen, productId }) {
   const [size, setSize] = useState("");
   const sizeBoxRef = useRef(null);
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
+
   const changeHandler = (e) => {
     setSize(e.target.value);
   };
@@ -33,8 +35,12 @@ function SizeBox({ setSizeBoxIsOpen, productId }) {
       <StyledButton
         onClick={() => {
           dispatch(
-            addProductToBag({ userId: 1, productId: productId, size: size })
-          ).then(() => dispatch(getUserById(1)));
+            addProductToBag({
+              userId: user.id,
+              productId: productId,
+              size: size,
+            })
+          ).then(() => dispatch(getUserById(user.id)));
 
           setSizeBoxIsOpen(false);
         }}
