@@ -17,17 +17,17 @@ const ProductsServices = {
   },
 
   addProductToBag: (product) => {
-    const url = "boughtProducts";
+    const url = "bagProducts";
     return axios.post(url, product);
   },
 
   getUserProducts: (id) => {
-    const url = `boughtProducts/${id}`;
+    const url = `bagProducts/${id}`;
     return axios.get(url);
   },
 
   deleteProductFromBag: (id) => {
-    const url = "boughtProducts/delete";
+    const url = "bagProducts/delete";
     return axios.delete(url, { data: id });
   },
 };
