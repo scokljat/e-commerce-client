@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { ReactComponent as Bag } from "../../assets/images/bx-cart-add.svg";
 import { ReactComponent as Bin } from "../../assets/images/bin.svg";
 import SizeBox from "../sizebox/SizeBox";
@@ -16,46 +17,56 @@ export default function Card({
   setModalIsOpen,
   size,
   setProductId,
-  boughtProductId,
+  bagProductId,
 }) {
   const [sizeBoxIsOpen, setSizeBoxIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { isLoggedIn } = useSelector((state) => state.user);
 
   return (
-    <ItemContainer>
+    <ItemContainer
+      onClick={() => {
+        navigate(`/shop/${product.id}`);
+      }}
+    >
       <Image src={product?.image} alt="" />
       <ItemDescription>
         <p>{product?.name.toUpperCase()}</p>
         <p>{product?.price} BAM</p>
       </ItemDescription>
-
-      <Overlay>
-        <OverlayContainer
-          isMyShop={location.pathname === "/my-shop" ? true : false}
-        >
-          {location.pathname === "/my-shop" ? (
-            <>
-              <h1>{size}</h1>
-              <Bin
-                style={{ width: "24px", height: "24px" }}
+      {isLoggedIn && (
+        <Overlay onClick={(e) => e.stopPropagation()}>
+          <OverlayContainer
+            isMyShop={location.pathname === "/my-shop" ? true : false}
+          >
+            {location.pathname === "/my-shop" ? (
+              <>
+                <h1>{size}</h1>
+                <Bin
+                  style={{ width: "24px", height: "24px" }}
+                  onClick={() => {
+                    setModalIsOpen(true);
+                    setProductId(bagProductId);
+                  }}
+                />
+              </>
+            ) : (
+              <Bag
                 onClick={() => {
-                  setModalIsOpen(true);
-                  setProductId(boughtProductId);
+                  setSizeBoxIsOpen(!sizeBoxIsOpen);
                 }}
               />
-            </>
-          ) : (
-            <Bag
-              onClick={() => {
-                setSizeBoxIsOpen(!sizeBoxIsOpen);
-              }}
+            )}
+          </OverlayContainer>
+          {sizeBoxIsOpen && (
+            <SizeBox
+              setSizeBoxIsOpen={setSizeBoxIsOpen}
+              productId={product.id}
             />
           )}
-        </OverlayContainer>
-        {sizeBoxIsOpen && (
-          <SizeBox setSizeBoxIsOpen={setSizeBoxIsOpen} productId={product.id} />
-        )}
-      </Overlay>
+        </Overlay>
+      )}
     </ItemContainer>
   );
 }
