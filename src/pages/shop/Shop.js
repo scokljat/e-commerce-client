@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Pagination from "../../components/pagination/Pagination";
 import Card from "../../components/card/Card";
 import { sidebarList } from "../../utils/Constants";
@@ -13,23 +13,22 @@ import { Description, Wrapper, GridContainer } from "./ShopStyle";
 
 function Shop() {
   const dispatch = useDispatch();
-  let [searchParams] = useSearchParams();
-  let category = searchParams.get("category");
+  const params = useParams();
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    if (category === "View-all") {
+    if (params.category === "View-all") {
       dispatch(getProducts());
       dispatch(
         getPaginatedProducts({ currentPage, numberOfProductsForPage: 9 })
       );
     } else {
       sidebarList.forEach((item) => {
-        if (item.category === category)
-          return dispatch(getFilteredProducts(category));
+        if (item.category === params.category)
+          return dispatch(getFilteredProducts(params.category));
       });
     }
-  }, [dispatch, category, currentPage]);
+  }, [dispatch, params, currentPage]);
 
   const { products, paginatedProducts, filteredProducts } = useSelector(
     (state) => state.products
@@ -37,7 +36,7 @@ function Shop() {
 
   return (
     <Wrapper>
-      {category === "View-all" ? (
+      {params.category === "View-all" ? (
         <>
           {!paginatedProducts?.length ? (
             <Description>No products in the shop.</Description>
