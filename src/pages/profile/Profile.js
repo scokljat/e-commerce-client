@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { editUser } from "../../store/user/userSlice";
 import { StyledImage, Container, Wrapper } from "./ProfileStyle";
 import { StyledButton } from "../../globalStyle";
-import { StyledForm, StyledInput, ErrorDescription } from "../LoginStyle";
+import { StyledForm, StyledInput, ErrorDescription } from "../auth/AuthStyle";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -15,7 +15,6 @@ function Profile() {
     handleSubmit,
     register,
     formState: { errors },
-    reset,
   } = useForm();
 
   const onSubmit = (values) => {
