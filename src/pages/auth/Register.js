@@ -2,14 +2,14 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import jwtDecode from "jwt-decode";
-import { getUserById, registerUser } from "../store/user/userSlice";
-import { StyledButton } from "../globalStyle";
+import { getUserById, registerUser } from "../../store/user/userSlice";
+import { StyledButton } from "../../globalStyle";
 import {
   StyledForm,
   StyledInput,
   ErrorDescription,
   StyledLink,
-} from "./LoginStyle";
+} from "./AuthStyle";
 
 function Register() {
   const dispatch = useDispatch();
