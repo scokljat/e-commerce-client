@@ -1,11 +1,11 @@
-import Login from "../pages/Login";
-import Register from "../pages/Register";
+import Login from "../pages/auth/Login";
+import Register from "../pages/auth/Register";
 import Home from "../pages/home/Home";
 import Shop from "../pages/shop/Shop";
 import MyShop from "../pages/MyShop";
 import Profile from "../pages/profile/Profile";
 import Error from "../pages/Error";
-import Details from "../pages/Details";
+import Details from "../pages/details/Details";
 import { ReactComponent as HomeIcon } from "../assets/images/home.svg";
 import { ReactComponent as User } from "../assets/images/user.svg";
 import { ReactComponent as Bag } from "../assets/images/bag.svg";
