@@ -40,6 +40,16 @@ export const getFilteredProducts = createAsyncThunk(
   }
 );
 
+export const getProductById = createAsyncThunk("getProductById", async (id) => {
+  try {
+    const res = await ProductsService.getProductById(id);
+
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export const addProductToBag = createAsyncThunk(
   "addProductToBag",
   async (product) => {
@@ -99,8 +109,11 @@ const slice = createSlice({
     [getFilteredProducts.fulfilled]: (state, action) => {
       state.filteredProducts = action.payload;
     },
-    [addProductToBag.fulfilled]: (state, action) => {
+    [getProductById.fulfilled]: (state, action) => {
       state.product = action.payload;
+    },
+    [addProductToBag.fulfilled]: (state, action) => {
+      //state.product = action.payload;
     },
     [getUserProducts.fulfilled]: (state, action) => {
       state.userProducts = action.payload;
