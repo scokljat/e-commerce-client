@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { ReactComponent as Menu } from "../../assets/images/menu.svg";
 import { ReactComponent as User } from "../../assets/images/user.svg";
 import { ReactComponent as Bag } from "../../assets/images/bag.svg";
 import { ReactComponent as Home } from "../../assets/images/home.svg";
@@ -11,18 +9,13 @@ import { Wrapper, Container, BagContainer, StyledNavLink } from "./NavBarStyle";
 
 function NavBar() {
   const { isLoggedIn } = useSelector((state) => state.user);
-  const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   return (
     <Wrapper>
-      <Menu
-        onClick={() => setSideBarIsOpen(!sideBarIsOpen)}
-        style={{ cursor: "pointer" }}
-      />
-      {sideBarIsOpen && <SideBar setSideBarIsOpen={setSideBarIsOpen} />}
+      <SideBar />
       <Container>
         {isLoggedIn ? (
           <>

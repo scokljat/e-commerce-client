@@ -5,10 +5,11 @@ export const Wrapper = styled.div`
   background: #fff;
   z-index: 1;
   position: absolute;
-  height: 90vh;
+  height: ${({ sideBarIsOpen }) => (sideBarIsOpen ? "100vh" : "none")};
   width: 200px;
-  top: 10vh;
+  top: 1vh;
   left: 0;
+  padding: 10px 20px;
 `;
 
 export const StyledList = styled.ul`
@@ -39,7 +40,7 @@ export const InputContainer = styled.div`
   border-radius: 5px;
   padding: 5px;
   width: 70%;
-  margin: 10px 20px;
+  margin: 20px 20px;
 
   input {
     height: 30px;
