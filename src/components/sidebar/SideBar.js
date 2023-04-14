@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ReactComponent as Search } from "../../assets/images/search.svg";
 import { sidebarList } from "../../utils/Constants";
 import {
@@ -9,7 +9,8 @@ import {
 } from "./SideBarStyle";
 
 function SideBar({ setSideBarIsOpen }) {
-  const [searchParams] = useSearchParams();
+  const location = useLocation();
+
   return (
     <Wrapper>
       <InputContainer>
@@ -26,9 +27,7 @@ function SideBar({ setSideBarIsOpen }) {
           >
             <StyledNavLink
               to={item.path}
-              active={
-                searchParams.get("category") === item.category ? true : false
-              }
+              active={location.pathname.includes(item.category) ? true : false}
             >
               {item.name}
             </StyledNavLink>
