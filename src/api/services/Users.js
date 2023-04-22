@@ -20,6 +20,11 @@ const UsersServices = {
     const url = "/users/edit";
     return axios.put(url, user);
   },
+
+  editUserPassword: (user) => {
+    const url = "/users/edit-password";
+    return axios.put(url, user);
+  },
 };
 
 export default UsersServices;

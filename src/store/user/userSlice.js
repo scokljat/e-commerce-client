@@ -41,6 +41,20 @@ export const editUser = createAsyncThunk("editUser", async (user) => {
   }
 });
 
+export const editUserPassword = createAsyncThunk(
+  "editUserPassword",
+  async (user) => {
+    console.log(user);
+    try {
+      const res = await UsersServices.editUserPassword(user);
+
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const slice = createSlice({
   name: "user",
   initialState: {

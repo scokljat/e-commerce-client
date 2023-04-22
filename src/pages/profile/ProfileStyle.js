@@ -27,5 +27,12 @@ export const Wrapper = styled.div`
 
   h2 {
     margin: 0;
+    font-size: 20px;
   }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 20px;
+  align-self: center;
 `;
