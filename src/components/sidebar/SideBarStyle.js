@@ -2,14 +2,16 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  background: #fff;
+  background: ${({ sideBarIsOpen }) =>
+    sideBarIsOpen ? "#fff" : "transparent"};
   z-index: 1;
-  position: absolute;
+  position: fixed;
   height: ${({ sideBarIsOpen }) => (sideBarIsOpen ? "100vh" : "none")};
   width: 200px;
-  top: 1vh;
+  top: 0vh;
   left: 0;
-  padding: 10px 20px;
+  padding-top: 10px;
+  padding-left: 10px; ;
 `;
 
 export const StyledList = styled.ul`

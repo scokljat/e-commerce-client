@@ -11,20 +11,20 @@ import {
   InputContainer,
 } from "./SideBarStyle";
 
-function SideBar({}) {
-  const [sideBarIsOpen, setSideBarIsOpen] = useState(false);
+function SideBar() {
+  const [sideBarListIsOpen, setSideBarListIsOpen] = useState(false);
   const location = useLocation();
   const sideBarRef = useRef(null);
 
-  useOnClickOutside(sideBarRef, () => setSideBarIsOpen(false));
+  useOnClickOutside(sideBarRef, () => setSideBarListIsOpen(false));
 
   return (
-    <Wrapper ref={sideBarRef} sideBarIsOpen={sideBarIsOpen}>
+    <Wrapper ref={sideBarRef} sideBarIsOpen={sideBarListIsOpen}>
       <Menu
-        onClick={() => setSideBarIsOpen(!sideBarIsOpen)}
+        onClick={() => setSideBarListIsOpen(!sideBarListIsOpen)}
         style={{ cursor: "pointer" }}
       />
-      {sideBarIsOpen && (
+      {sideBarListIsOpen && (
         <>
           <InputContainer>
             <input placeholder="Search..." />
@@ -34,7 +34,7 @@ function SideBar({}) {
             {sidebarList.map((item, index) => (
               <li
                 onClick={() => {
-                  setSideBarIsOpen(false);
+                  setSideBarListIsOpen(false);
                 }}
                 key={index}
               >
