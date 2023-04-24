@@ -35,6 +35,12 @@ const ProductsServices = {
     const url = "bagProducts/delete";
     return axios.delete(url, { data: id });
   },
+
+  deleteAllProductsFromBag: (user) => {
+    console.log(user);
+    const url = "bagProducts";
+    return axios.delete(url, { data: user });
+  },
 };
 
 export default ProductsServices;
