@@ -1,3 +1,5 @@
+import { ReactComponent as Plus } from "../../assets/images/bx-plus-circle.svg";
+import { ReactComponent as Minus } from "../../assets/images/bx-minus-circle.svg";
 import styled from "styled-components";
 
 export const Image = styled.img`
@@ -47,4 +49,36 @@ export const OverlayContainer = styled.div`
   align-items: center;
   height: 100%;
   padding: 0px 20px;
+`;
+
+export const QuantitiyContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const InnerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  p {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    color: #f0408d;
+  }
+`;
+
+export const StyledPlus = styled(Plus)`
+  :hover {
+    stroke: #f0408d;
+    fill: #f0408d;
+  }
+`;
+
+export const StyledMinus = styled(Minus)`
+  :hover {
+    stroke: #f0408d;
+    fill: #f0408d;
+  }
 `;

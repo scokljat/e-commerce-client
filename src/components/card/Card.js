@@ -10,6 +10,10 @@ import {
   ItemDescription,
   Overlay,
   OverlayContainer,
+  QuantitiyContainer,
+  InnerContainer,
+  StyledPlus,
+  StyledMinus,
 } from "./CardStyle";
 
 export default function Card({
@@ -43,13 +47,20 @@ export default function Card({
             {location.pathname === "/my-shop" ? (
               <>
                 <h1>{size}</h1>
-                <Bin
-                  style={{ width: "24px", height: "24px" }}
-                  onClick={() => {
-                    setModalIsOpen(true);
-                    setProductId(bagProductId);
-                  }}
-                />
+                <InnerContainer>
+                  <QuantitiyContainer>
+                    <StyledPlus />
+                    <StyledMinus />
+                  </QuantitiyContainer>
+                  <p>0</p>
+                  <Bin
+                    style={{ width: "24px", height: "24px" }}
+                    onClick={() => {
+                      setModalIsOpen(true);
+                      setProductId(bagProductId);
+                    }}
+                  />
+                </InnerContainer>
               </>
             ) : (
               <Bag
