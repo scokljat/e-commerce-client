@@ -10,28 +10,38 @@ import {
   PriceNumber,
 } from "./shop/ShopStyle";
 import { Wrapper } from "./shop/ShopStyle";
-import { StyledButton } from "../globalStyle";
+import OrderContent from "../components/orderContent/OrderContent";
+import Stripe from "../components/stripe/Stripe";
 
 function MyShop() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [orderModalIsOpen, setOrderModalIsOpen] = useState(false);
   const [productId, setProductId] = useState(0);
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.user);
   const { userProducts } = useSelector((state) => state.products);
 
-  useEffect(() => {
-    dispatch(getUserProducts(user?.id));
-  }, [dispatch, user]);
-
   let totalPrice = userProducts?.reduce(function (prev, current) {
     return prev + +current.product.price;
   }, 0);
 
+  useEffect(() => {
+    dispatch(getUserProducts(user?.id));
+  }, [dispatch, user]);
+  console.log(userProducts);
   return (
     <Wrapper>
       {modalIsOpen && (
         <DeleteContent setModalIsOpen={setModalIsOpen} productId={productId} />
+      )}
+      {orderModalIsOpen && (
+        <OrderContent
+          totalPrice={totalPrice}
+          numberOfProducts={userProducts?.length}
+          setOrderModalIsOpen={setOrderModalIsOpen}
+          userId={user.id}
+        />
       )}
       {!userProducts?.length ? (
         <Description>Nothing in this bag.</Description>
@@ -52,7 +62,7 @@ function MyShop() {
           <Price>
             PRICE IN TOTAL: <PriceNumber>{totalPrice} BAM</PriceNumber>
           </Price>
-          <StyledButton style={{ width: "27.5%" }}>Buy</StyledButton>
+          <Stripe totalPrice={totalPrice} userId={user.id} />
         </>
       )}
     </Wrapper>
