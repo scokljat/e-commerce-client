@@ -36,10 +36,14 @@ const ProductsServices = {
     return axios.delete(url, { data: id });
   },
 
-  deleteAllProductsFromBag: (user) => {
-    console.log(user);
+  deleteAllProductsFromBag: (product) => {
     const url = "bagProducts";
-    return axios.delete(url, { data: user });
+    return axios.delete(url, { data: product });
+  },
+
+  increaseUserProduct: (product) => {
+    const url = "bagProducts/increase";
+    return axios.put(url, product);
   },
 };
 

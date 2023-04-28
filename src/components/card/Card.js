@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as Bag } from "../../assets/images/bx-cart-add.svg";
 import { ReactComponent as Bin } from "../../assets/images/bin.svg";
 import SizeBox from "../sizebox/SizeBox";
@@ -15,6 +15,7 @@ import {
   StyledPlus,
   StyledMinus,
 } from "./CardStyle";
+import { increaseUserProduct } from "../../store/products/productSlice";
 
 export default function Card({
   product,
@@ -22,11 +23,13 @@ export default function Card({
   size,
   setProductId,
   bagProductId,
+  quantity,
 }) {
   const [sizeBoxIsOpen, setSizeBoxIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { isLoggedIn } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const { isLoggedIn, user } = useSelector((state) => state.user);
 
   return (
     <ItemContainer
@@ -49,10 +52,20 @@ export default function Card({
                 <h1>{size}</h1>
                 <InnerContainer>
                   <QuantitiyContainer>
-                    <StyledPlus />
+                    <StyledPlus
+                      onClick={() =>
+                        dispatch(
+                          increaseUserProduct({
+                            userId: user.id,
+                            productId: product.id,
+                            size: size,
+                          })
+                        )
+                      }
+                    />
                     <StyledMinus />
                   </QuantitiyContainer>
-                  <p>0</p>
+                  <p>{quantity}</p>
                   <Bin
                     style={{ width: "24px", height: "24px" }}
                     onClick={() => {

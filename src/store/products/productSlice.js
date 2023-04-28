@@ -89,6 +89,35 @@ export const deleteProductFromBag = createAsyncThunk(
   }
 );
 
+export const deleteAllProductsFromBag = createAsyncThunk(
+  "deleteProductFromBag",
+  async (id) => {
+    try {
+      const res = await ProductsService.deleteAllProductsFromBag({
+        userId: id,
+      });
+
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const increaseUserProduct = createAsyncThunk(
+  "increaseUserProduct",
+  async (product) => {
+    console.log(product);
+    try {
+      const res = await ProductsService.increaseUserProduct(product);
+
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const slice = createSlice({
   name: "products",
   initialState: {
@@ -122,6 +151,12 @@ const slice = createSlice({
       state.userProducts = state.userProducts.filter(
         (product) => product.id !== action.payload.id
       );
+    },
+    [deleteAllProductsFromBag.fulfilled]: (state, action) => {
+      state.userProducts = [];
+    },
+    [increaseUserProduct.fulfilled]: (state, action) => {
+      state.userProducts = action.payload;
     },
   },
 });
