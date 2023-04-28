@@ -5,6 +5,10 @@ import { ReactComponent as Bag } from "../../assets/images/bx-cart-add.svg";
 import { ReactComponent as Bin } from "../../assets/images/bin.svg";
 import SizeBox from "../sizebox/SizeBox";
 import {
+  increaseUserProduct,
+  decreaseUserProduct,
+} from "../../store/products/productSlice";
+import {
   Image,
   ItemContainer,
   ItemDescription,
@@ -15,7 +19,6 @@ import {
   StyledPlus,
   StyledMinus,
 } from "./CardStyle";
-import { increaseUserProduct } from "../../store/products/productSlice";
 
 export default function Card({
   product,
@@ -63,7 +66,17 @@ export default function Card({
                         )
                       }
                     />
-                    <StyledMinus />
+                    <StyledMinus
+                      onClick={() =>
+                        dispatch(
+                          decreaseUserProduct({
+                            userId: user.id,
+                            productId: product.id,
+                            size: size,
+                          })
+                        )
+                      }
+                    />
                   </QuantitiyContainer>
                   <p>{quantity}</p>
                   <Bin

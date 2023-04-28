@@ -45,6 +45,11 @@ const ProductsServices = {
     const url = "bagProducts/increase";
     return axios.put(url, product);
   },
+
+  decreaseUserProduct: (product) => {
+    const url = "bagProducts/decrease";
+    return axios.put(url, product);
+  },
 };
 
 export default ProductsServices;

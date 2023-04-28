@@ -118,6 +118,19 @@ export const increaseUserProduct = createAsyncThunk(
   }
 );
 
+export const decreaseUserProduct = createAsyncThunk(
+  "decreaseUserProduct",
+  async (product) => {
+    try {
+      const res = await ProductsService.decreaseUserProduct(product);
+
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const slice = createSlice({
   name: "products",
   initialState: {
@@ -156,7 +169,20 @@ const slice = createSlice({
       state.userProducts = [];
     },
     [increaseUserProduct.fulfilled]: (state, action) => {
-      state.userProducts = action.payload;
+      state.userProducts = state.userProducts.map((product) => {
+        if (product.id === action.payload.id) {
+          return { ...product, quantity: product.quantity + 1 };
+        }
+        return product;
+      });
+    },
+    [decreaseUserProduct.fulfilled]: (state, action) => {
+      state.userProducts = state.userProducts.map((product) => {
+        if (product.id === action.payload.id) {
+          return { ...product, quantity: product.quantity - 1 };
+        }
+        return product;
+      });
     },
   },
 });
