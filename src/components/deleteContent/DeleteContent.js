@@ -2,8 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as Close } from "../../assets/images/bx-x.svg";
 import Modal from "../modal/Modal";
 import { Wrapper, ButtonContainer } from "./DeleteContentStyle";
-import { deleteProductFromBag } from "../../store/products/productSlice";
-import { getUserById } from "../../store/user/userSlice";
+import {
+  deleteProductFromBag,
+  getUserProducts,
+} from "../../store/products/productSlice";
 import { StyledButton } from "../../globalStyle";
 
 export default function DeleteContent({ setModalIsOpen, productId }) {
@@ -21,7 +23,7 @@ export default function DeleteContent({ setModalIsOpen, productId }) {
           <StyledButton
             onClick={() => {
               dispatch(deleteProductFromBag(productId)).then(() =>
-                dispatch(getUserById(user.id))
+                dispatch(getUserProducts(user.id))
               );
             }}
           >
