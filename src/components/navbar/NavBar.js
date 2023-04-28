@@ -9,7 +9,8 @@ import { Wrapper, Container, BagContainer, StyledNavLink } from "./NavBarStyle";
 
 function NavBar() {
   const { isLoggedIn } = useSelector((state) => state.user);
-  const { user } = useSelector((state) => state.user);
+  const { userProducts } = useSelector((state) => state.products);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -29,7 +30,7 @@ function NavBar() {
               <StyledNavLink to="/my-shop">
                 <Bag />
               </StyledNavLink>
-              <p>{user?.bagProducts?.length}</p>
+              <p>{userProducts?.length}</p>
             </BagContainer>
             <h3
               onClick={() => {
