@@ -5,8 +5,9 @@ export const Container = styled.div`
   padding: 10px;
   background: #fff;
   position: absolute;
-  top: 10px;
-  right: 90px;
+  top: ${({ detailsPage }) => !detailsPage && "10px"};
+  bottom: ${({ detailsPage }) => detailsPage && "200px"};
+  right: ${({ detailsPage }) => (detailsPage ? "480px" : "90px")};
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -14,6 +15,13 @@ export const Container = styled.div`
   align-items: center;
   font-size: 15px;
   border: 1px solid #6f6f6f;
+
+  p {
+    color: #f0408d;
+    font-size: 12px;
+    margin: 0;
+    margin-bottom: 5px;
+  }
 `;
 
 export const SizeContainer = styled.select`
