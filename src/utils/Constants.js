@@ -17,9 +17,8 @@ export const routes = [
   { path: "/login", page: <Login /> },
   { path: "/register", page: <Register /> },
   { path: "/", page: <Home /> },
-  { path: "/shop/:category", page: <Shop /> },
-  { path: "/my-shop", page: <MyShop /> },
   { path: "/shop/:productId", page: <Details /> },
+  { path: "/my-shop", page: <MyShop /> },
   { path: "/profile", page: <Profile /> },
   { path: "/*", page: <Error /> },
 ];
