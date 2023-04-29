@@ -14,6 +14,10 @@ function NavBar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  let totalProducts = userProducts?.reduce(function (prev, current) {
+    return prev + +current.quantity;
+  }, 0);
+
   return (
     <Wrapper>
       <SideBar />
@@ -30,7 +34,7 @@ function NavBar() {
               <StyledNavLink to="/my-shop">
                 <Bag />
               </StyledNavLink>
-              <p>{userProducts?.length}</p>
+              <p>{totalProducts}</p>
             </BagContainer>
             <h3
               onClick={() => {

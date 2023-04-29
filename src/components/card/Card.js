@@ -8,6 +8,7 @@ import {
   increaseUserProduct,
   decreaseUserProduct,
 } from "../../store/products/productSlice";
+import { getUserById } from "../../store/user/userSlice";
 import {
   Image,
   ItemContainer,
@@ -43,7 +44,13 @@ export default function Card({
       <Image src={product?.image} alt="" />
       <ItemDescription>
         <p>{product?.name.toUpperCase()}</p>
-        <p>{product?.price} BAM</p>
+        {location.pathname === "/my-shop" ? (
+          <p>
+            {quantity} x {product?.price} BAM
+          </p>
+        ) : (
+          <p>{product?.price} BAM</p>
+        )}
       </ItemDescription>
       {isLoggedIn && (
         <Overlay onClick={(e) => e.stopPropagation()}>
@@ -56,27 +63,29 @@ export default function Card({
                 <InnerContainer>
                   <QuantitiyContainer>
                     <StyledPlus
-                      onClick={() =>
+                      onClick={() => {
                         dispatch(
                           increaseUserProduct({
                             userId: user.id,
                             productId: product.id,
                             size: size,
                           })
-                        )
-                      }
+                        ).then(() => dispatch(getUserById(user.id)));
+                      }}
                     />
-                    <StyledMinus
-                      onClick={() =>
-                        dispatch(
-                          decreaseUserProduct({
-                            userId: user.id,
-                            productId: product.id,
-                            size: size,
-                          })
-                        )
-                      }
-                    />
+                    {quantity > 1 && (
+                      <StyledMinus
+                        onClick={() =>
+                          dispatch(
+                            decreaseUserProduct({
+                              userId: user.id,
+                              productId: product.id,
+                              size: size,
+                            })
+                          )
+                        }
+                      />
+                    )}
                   </QuantitiyContainer>
                   <p>{quantity}</p>
                   <Bin

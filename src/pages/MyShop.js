@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../components/card/Card";
 import DeleteContent from "../components/deleteContent/DeleteContent";
-import { getUserProducts } from "../store/products/productSlice";
+import OrderContent from "../components/orderContent/OrderContent";
+import Stripe from "../components/stripe/Stripe";
 import {
   Description,
   GridContainer,
@@ -10,26 +11,19 @@ import {
   PriceNumber,
 } from "./shop/ShopStyle";
 import { Wrapper } from "./shop/ShopStyle";
-import OrderContent from "../components/orderContent/OrderContent";
-import Stripe from "../components/stripe/Stripe";
 
 function MyShop() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [orderModalIsOpen, setOrderModalIsOpen] = useState(false);
   const [productId, setProductId] = useState(0);
-  const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.user);
   const { userProducts } = useSelector((state) => state.products);
 
   let totalPrice = userProducts?.reduce(function (prev, current) {
-    return prev + +current.product.price;
+    return prev + +current.product.price * current.quantity;
   }, 0);
 
-  useEffect(() => {
-    dispatch(getUserProducts(user?.id));
-  }, [dispatch, user]);
-  console.log(userProducts);
   return (
     <Wrapper>
       {modalIsOpen && (
@@ -52,6 +46,7 @@ function MyShop() {
               <Card
                 key={product?.id}
                 bagProductId={product?.id}
+                quantity={product?.quantity}
                 product={product?.product}
                 size={product?.size}
                 setModalIsOpen={setModalIsOpen}
