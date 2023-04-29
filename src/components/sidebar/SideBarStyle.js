@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   top: 0vh;
   left: 0;
   padding-top: 10px;
-  padding-left: 10px; ;
+  padding-left: 10px;
 `;
 
 export const StyledList = styled.ul`

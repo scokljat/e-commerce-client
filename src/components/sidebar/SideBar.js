@@ -41,7 +41,9 @@ function SideBar() {
                 <StyledNavLink
                   to={item.path}
                   active={
-                    location.pathname.includes(item.category) ? true : false
+                    location.pathname.includes(item.category)
+                      ? "true"
+                      : undefined
                   }
                 >
                   {item.name}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Pagination from "../../components/pagination/Pagination";
 import Card from "../../components/card/Card";
 import { sidebarList } from "../../utils/Constants";
@@ -13,22 +13,22 @@ import { Description, Wrapper, GridContainer } from "./ShopStyle";
 
 function Shop() {
   const dispatch = useDispatch();
-  const params = useParams();
+  const location = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    if (params.category === "View-all") {
+    if (location.pathname.includes("View-all")) {
       dispatch(getProducts());
       dispatch(
         getPaginatedProducts({ currentPage, numberOfProductsForPage: 9 })
       );
     } else {
       sidebarList.forEach((item) => {
-        if (item.category === params.category)
-          return dispatch(getFilteredProducts(params.category));
+        if (location.pathname.includes(item.category))
+          return dispatch(getFilteredProducts(item.category));
       });
     }
-  }, [dispatch, params, currentPage]);
+  }, [dispatch, location, currentPage]);
 
   const { products, paginatedProducts, filteredProducts } = useSelector(
     (state) => state.products
@@ -36,7 +36,7 @@ function Shop() {
 
   return (
     <Wrapper>
-      {params.category === "View-all" ? (
+      {location.pathname.includes("View-all") ? (
         <>
           {!paginatedProducts?.length ? (
             <Description>No products in the shop.</Description>
@@ -44,7 +44,7 @@ function Shop() {
             <>
               <GridContainer>
                 {paginatedProducts?.map((product) => (
-                  <Card product={product} />
+                  <Card product={product} key={product?.id} />
                 ))}
               </GridContainer>
               <Pagination
@@ -63,7 +63,7 @@ function Shop() {
           ) : (
             <GridContainer>
               {filteredProducts?.map((product) => (
-                <Card product={product} />
+                <Card product={product} key={product?.id} />
               ))}
             </GridContainer>
           )}
