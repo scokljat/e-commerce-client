@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import jwtDecode from "jwt-decode";
 import { getUserById, loginUser } from "../../store/user/userSlice";
+import { getUserProducts } from "../../store/products/productSlice";
 import { StyledButton } from "../../globalStyle";
 import {
   StyledForm,
@@ -24,9 +25,14 @@ function Login() {
 
   const onSubmit = (values) => {
     dispatch(loginUser(values)).then(() => {
-      dispatch(getUserById(jwtDecode(localStorage.getItem("token")).id));
+      dispatch(
+        getUserProducts(jwtDecode(localStorage.getItem("token")).id)
+      ).then(() =>
+        dispatch(getUserById(jwtDecode(localStorage.getItem("token")).id))
+      );
       navigate("/");
     });
+
     reset();
   };
 

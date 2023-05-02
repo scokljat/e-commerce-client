@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   width: 40%;
 
   p {
@@ -22,6 +22,7 @@ export const StyledInput = styled.input`
 
 export const ErrorDescription = styled.p`
   color: #f0408d;
+  font-size: 12px;
   margin: 0;
 `;
 
