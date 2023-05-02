@@ -31,18 +31,30 @@ export const BagContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 3px;
-
-  p {
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0;
-    padding-bottom: 3px;
-    color: #f0408d;
-  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   cursor: pointer;
   color: #6f6f6f;
+`;
+
+export const TotalProducts = styled.div`
+  width: 23px;
+  height: 23px;
+  background: #f0408d;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+
+  p {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0;
+    color: #fff;
+  }
 `;
