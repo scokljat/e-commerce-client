@@ -2,16 +2,17 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { ReactComponent as LeftArrow } from "../../assets/images/bx-left-arrow-alt.svg";
+import SizeBox from "../../components/sizebox/SizeBox";
 import { getProductById } from "../../store/products/productSlice";
 import { Image, Wrapper, Container, Description } from "./DetailsStyle";
 import { StyledButton } from "../../globalStyle";
-import SizeBox from "../../components/sizebox/SizeBox";
 
 function Details() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const param = useParams();
   const { product } = useSelector((state) => state.products);
+  const { isLoggedIn } = useSelector((state) => state.user);
   const [sizeBoxIsOpen, setSizeBoxIsOpen] = useState(false);
 
   useEffect(() => {
@@ -36,14 +37,22 @@ function Details() {
             productId={product?.id}
           />
         ) : (
-          <StyledButton
-            style={{ minWidth: "40%", alignSelf: "center", marginTop: "20px" }}
-            onClick={() => {
-              setSizeBoxIsOpen(true);
-            }}
-          >
-            Add to bag
-          </StyledButton>
+          <>
+            {isLoggedIn && (
+              <StyledButton
+                style={{
+                  minWidth: "40%",
+                  alignSelf: "center",
+                  marginTop: "1.25rem",
+                }}
+                onClick={() => {
+                  setSizeBoxIsOpen(true);
+                }}
+              >
+                Add to bag
+              </StyledButton>
+            )}
+          </>
         )}
       </Container>
     </Wrapper>
