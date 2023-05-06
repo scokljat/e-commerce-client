@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const Image = styled.img`
   width: 100%;
-  height: 550px;
+  height: 34.3rem;
   align-self: center;
 `;
 
@@ -12,24 +12,29 @@ export const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 
   :hover {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 1100px) {
+    width: 100%;
   }
 `;
 
 export const ItemDescription = styled.div`
   display: flex;
   justify-content: space-between;
-  font-size: 15px;
+  font-size: 0.93rem;
 `;
 
 export const Overlay = styled.div`
-  height: 80px;
+  height: 5rem;
   z-index: 1;
   background: rgb(255, 255, 255, 0.9);
   position: relative;
-  bottom: 127px;
+  bottom: 7.9rem;
   opacity: 0;
 
   :hover {
@@ -48,7 +53,7 @@ export const OverlayContainer = styled.div`
     isMyShop ? "space-between" : "flex-end"};
   align-items: center;
   height: 100%;
-  padding: 0px 20px;
+  padding: 0rem 1.2rem;
 `;
 
 export const QuantitiyContainer = styled.div`
@@ -59,12 +64,12 @@ export const QuantitiyContainer = styled.div`
 export const InnerContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 0.3rem;
 
   p {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 600;
-    margin: 0;
+    margin: 0rem;
     color: #f0408d;
   }
 `;

@@ -89,7 +89,7 @@ export default function Card({
                   </QuantitiyContainer>
                   <p>{quantity}</p>
                   <Bin
-                    style={{ width: "24px", height: "24px" }}
+                    style={{ width: "1.5rem", height: "1.5rem" }}
                     onClick={() => {
                       setModalIsOpen(true);
                       setProductId(bagProductId);
