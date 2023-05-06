@@ -6,31 +6,31 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 10px;
+  padding-right: 0.63rem;
 `;
 
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 0.93rem;
 
   svg {
     cursor: pointer;
   }
 
   h3 {
-    font-size: 15px;
+    font-size: 0.93rem;
     font-weight: 200;
     cursor: pointer;
     color: #6f6f6f;
-    padding-bottom: 3px;
+    padding-bottom: 0.18rem;
   }
 `;
 
 export const BagContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 0.18rem;
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -40,21 +40,21 @@ export const StyledNavLink = styled(NavLink)`
 `;
 
 export const TotalProducts = styled.div`
-  width: 23px;
-  height: 23px;
+  width: 1.43rem;
+  height: 1.43rem;
   background: #f0408d;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  left: 15px;
-  bottom: 15px;
+  left: 0.93rem;
+  bottom: 0.93rem;
 
   p {
-    font-size: 17px;
+    font-size: 1.06rem;
     font-weight: 600;
-    margin: 0;
+    margin: 0rem;
     color: #fff;
   }
 `;

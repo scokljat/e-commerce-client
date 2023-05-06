@@ -44,7 +44,7 @@ export const InputContainer = styled.div`
   display: flex;
   align-items: center;
   border: 0.06rem solid #6f6f6f;
-  border-radius: 5px;
+  border-radius: 0.31rem;
   padding: 0.31rem;
   width: 70%;
   margin: 1.25rem;

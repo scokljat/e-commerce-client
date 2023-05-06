@@ -57,7 +57,7 @@ function NavBar() {
           </>
         ) : (
           <>
-            <StyledNavLink to="/" style={{ marginTop: "5px" }}>
+            <StyledNavLink to="/" style={{ marginTop: "0.31rem" }}>
               <Home />
             </StyledNavLink>
             <StyledNavLink to="/login">Log in</StyledNavLink>
