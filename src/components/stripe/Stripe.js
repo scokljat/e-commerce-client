@@ -42,7 +42,7 @@ function Stripe({ totalPrice, userId }) {
       amount={totalPrice * 100}
       token={makePayment}
     >
-      <StyledButton style={{ width: "10%" }}>Buy now</StyledButton>
+      <StyledButton>Buy now</StyledButton>
     </StripeCheckout>
   );
 }
