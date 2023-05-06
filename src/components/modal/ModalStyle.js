@@ -21,4 +21,21 @@ export const Content = styled.div`
   cursor: default;
   width: 30%;
   height: 35%;
+
+  @media (max-width: 980px) {
+    height: 25%;
+  }
+
+  @media (max-width: 800px) {
+    width: 40%;
+  }
+
+  @media (max-width: 550px) {
+    width: 50%;
+  }
+
+  @media (max-width: 420px) {
+    width: 70%;
+    height: 30%;
+  }
 `;
