@@ -4,7 +4,7 @@ export const PaginationContainer = styled.ul`
   list-style: none;
   display: flex;
   align-self: center;
-  gap: 40px;
+  gap: 2.5rem;
 
   li {
     cursor: pointer;

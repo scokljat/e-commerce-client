@@ -66,7 +66,12 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   gap: 0.63rem;
+
+  @media (max-width: 800px) {
+    margin-bottom: 40px;
+  }
 `;
 
 export const Description = styled.p`
