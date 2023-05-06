@@ -44,8 +44,10 @@ function SizeBox({ setSizeBoxIsOpen, productId, detailsPage }) {
       />
       <SizeContainer>
         <Size value="none">Choose size...</Size>
-        {selectOptions.map((item) => (
-          <Size value={item}>{item}</Size>
+        {selectOptions.map((item, index) => (
+          <Size value={item} key={index}>
+            {item}
+          </Size>
         ))}
       </SizeContainer>
       {productIsInBag && <p>You have this product in bag</p>}
