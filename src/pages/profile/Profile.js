@@ -2,13 +2,9 @@ import { useState } from "react";
 import { useForm, useFormState } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as Close } from "../../assets/images/bx-left-arrow-alt.svg";
+import { ReactComponent as User } from "../../assets/images/user.svg";
 import { editUser, editUserPassword } from "../../store/user/userSlice";
-import {
-  StyledImage,
-  Container,
-  Wrapper,
-  ButtonContainer,
-} from "./ProfileStyle";
+import { Username, Container, ButtonContainer } from "./ProfileStyle";
 import { StyledButton } from "../../globalStyle";
 import { StyledForm, StyledInput, ErrorDescription } from "../auth/AuthStyle";
 
@@ -50,7 +46,6 @@ function Profile() {
   };
 
   const onSubmitPassword = (values) => {
-    console.log(values);
     dispatch(
       editUserPassword({
         id: user?.id,
@@ -62,8 +57,7 @@ function Profile() {
   };
 
   return (
-    <Wrapper>
-      <StyledImage src={user?.image} alt="" />
+    <>
       {editFormIsOpen ? (
         <Container>
           <Close
@@ -72,8 +66,9 @@ function Profile() {
           />
           <StyledForm
             onSubmit={handleSubmit(onSubmitInformations)}
-            style={{ gap: "5px", width: "100%" }}
+            style={{ gap: "0.3rem", width: "100%" }}
           >
+            <p style={{ fontSize: "1.2rem" }}>Edit personal informations</p>
             <StyledInput
               placeholder="First name"
               {...register("firstName", {
@@ -142,9 +137,10 @@ function Profile() {
             onClick={() => setEditPassword(false)}
           />
           <StyledForm
-            style={{ gap: "5px", width: "100%" }}
+            style={{ gap: "0.3rem", width: "100%" }}
             onSubmit={handleSubmit(onSubmitPassword)}
           >
+            <p style={{ fontSize: "1.2rem" }}>Edit password</p>
             <StyledInput
               placeholder="Current Password"
               {...register("currentPassword", {
@@ -201,12 +197,14 @@ function Profile() {
         </Container>
       ) : (
         <Container>
-          <h1>
-            {user?.firstName?.toUpperCase()} {user?.lastName?.toUpperCase()}
-          </h1>
-
-          <h2>Username: {user?.userName}</h2>
-          <h2>Email: {user?.email}</h2>
+          <Username>
+            <User style={{ width: "1.5rem", height: "1.5rem" }} />
+            <h1>
+              {user?.firstName?.toUpperCase()} {user?.lastName?.toUpperCase()}
+            </h1>
+          </Username>
+          <h3>Username: {user?.userName}</h3>
+          <h3>Email: {user?.email}</h3>
           <ButtonContainer>
             <StyledButton onClick={() => setEditFormIsOpen(true)}>
               Edit informations
@@ -217,7 +215,7 @@ function Profile() {
           </ButtonContainer>
         </Container>
       )}
-    </Wrapper>
+    </>
   );
 }
 
