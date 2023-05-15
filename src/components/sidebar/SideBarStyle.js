@@ -40,35 +40,25 @@ export const StyledNavLink = styled(NavLink)`
   }
 `;
 
-export const InputContainer = styled.div`
-  display: flex;
-  align-items: center;
+export const Line = styled.hr`
   border: 0.06rem solid #6f6f6f;
-  border-radius: 0.31rem;
-  padding: 0.31rem;
-  width: 70%;
-  margin: 1.25rem;
+  width: 9.3rem;
+  margin: 0rem 1.8rem;
+  margin-bottom: 0.63rem;
 
   @media (max-width: 620px) {
-    padding: 0rem;
-    margin-bottom: 0rem;
+    width: 6.25rem;
   }
+`;
 
-  input {
-    height: 1.8rem;
-    background: transparent;
-    border: none;
-    outline: none;
-    width: 80%;
+export const SearchContainer = styled(NavLink)`
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
 
-    ::placeholder {
-      @media (max-width: 620px) {
-        font-size: 0.75rem;
-      }
-    }
-  }
-
-  svg {
-    fill: #6f6f6f;
+  p {
+    margin: 0rem;
+    padding: 0.63rem 1.8rem;
+    padding-bottom: 0rem;
   }
 `;

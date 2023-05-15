@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { ReactComponent as Search } from "../../assets/images/search.svg";
 import { ReactComponent as Menu } from "../../assets/images/menu.svg";
 import { sidebarList } from "../../utils/Constants";
 import { useOnClickOutside } from "../../utils/FunctionOnClickOutside";
@@ -8,7 +7,8 @@ import {
   Wrapper,
   StyledList,
   StyledNavLink,
-  InputContainer,
+  SearchContainer,
+  Line,
 } from "./SideBarStyle";
 
 function SideBar() {
@@ -25,33 +25,29 @@ function SideBar() {
         style={{ cursor: "pointer" }}
       />
       {sideBarListIsOpen && (
-        <>
-          <InputContainer>
-            <input placeholder="Search..." />
-            <Search />
-          </InputContainer>
-          <StyledList>
-            {sidebarList.map((item, index) => (
-              <li
-                onClick={() => {
-                  setSideBarListIsOpen(false);
-                }}
-                key={index}
+        <StyledList>
+          <SearchContainer to={"/search"}>
+            <p>Search</p>
+            <Line />
+          </SearchContainer>
+          {sidebarList.map((item, index) => (
+            <li
+              onClick={() => {
+                setSideBarListIsOpen(false);
+              }}
+              key={index}
+            >
+              <StyledNavLink
+                to={item.path}
+                active={
+                  location.pathname.includes(item.category) ? "true" : undefined
+                }
               >
-                <StyledNavLink
-                  to={item.path}
-                  active={
-                    location.pathname.includes(item.category)
-                      ? "true"
-                      : undefined
-                  }
-                >
-                  {item.name}
-                </StyledNavLink>
-              </li>
-            ))}
-          </StyledList>
-        </>
+                {item.name}
+              </StyledNavLink>
+            </li>
+          ))}
+        </StyledList>
       )}
     </Wrapper>
   );
