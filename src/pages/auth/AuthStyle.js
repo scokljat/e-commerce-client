@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.63rem;
   width: 40%;
 
@@ -17,6 +18,10 @@ export const StyledForm = styled.form`
 
   @media (max-width: 620px) {
     width: 70%;
+
+    p {
+      font-size: 0.75rem;
+    }
   }
 
   @media (max-width: 530px) {
@@ -34,6 +39,7 @@ export const StyledInput = styled.input`
   border: 0.06rem solid #6f6f6f;
   padding: 0rem 0.63rem;
   outline: none;
+  width: 100%;
 `;
 
 export const ErrorDescription = styled.p`

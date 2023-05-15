@@ -39,6 +39,10 @@ export const Description = styled.p`
   align-self: center;
   font-size: 1.06rem;
   color: #6f6f6f;
+
+  @media (max-width: 620px) {
+    font-size: 0.87rem;
+  }
 `;
 
 export const Price = styled.p`
