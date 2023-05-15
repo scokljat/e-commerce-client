@@ -30,7 +30,7 @@ export const ItemDescription = styled.div`
 `;
 
 export const Overlay = styled.div`
-  height: 5rem;
+  height: 4.6rem;
   z-index: 1;
   background: rgb(255, 255, 255, 0.9);
   position: relative;

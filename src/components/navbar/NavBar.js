@@ -11,6 +11,7 @@ import {
   BagContainer,
   StyledNavLink,
   TotalProducts,
+  InnerContainer,
 } from "./NavBarStyle";
 
 function NavBar() {
@@ -56,12 +57,12 @@ function NavBar() {
             </h3>
           </>
         ) : (
-          <>
+          <InnerContainer>
             <StyledNavLink to="/" style={{ marginTop: "0.31rem" }}>
               <Home />
             </StyledNavLink>
             <StyledNavLink to="/login">Log in</StyledNavLink>
-          </>
+          </InnerContainer>
         )}
       </Container>
     </Wrapper>

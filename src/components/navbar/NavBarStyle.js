@@ -37,6 +37,15 @@ export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   cursor: pointer;
   color: #6f6f6f;
+
+  @media (max-width: 620px) {
+    font-size: 0.87rem;
+
+    svg {
+      height: 1.2rem;
+      width: 1.2rem;
+    }
+  }
 `;
 
 export const TotalProducts = styled.div`
@@ -57,4 +66,11 @@ export const TotalProducts = styled.div`
     margin: 0rem;
     color: #fff;
   }
+`;
+
+export const InnerContainer = styled.div`
+  display: flex;
+  gap: 0.43rem;
+  align-items: center;
+  margin-top: 0.5rem;
 `;
