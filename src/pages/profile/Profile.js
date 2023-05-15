@@ -61,7 +61,7 @@ function Profile() {
       {editFormIsOpen ? (
         <Container>
           <Close
-            style={{ alignSelf: "flex-end", cursor: "pointer" }}
+            style={{ alignSelf: "flex-start", cursor: "pointer" }}
             onClick={() => setEditFormIsOpen(false)}
           />
           <StyledForm
@@ -133,7 +133,7 @@ function Profile() {
       ) : editPassword ? (
         <Container>
           <Close
-            style={{ alignSelf: "flex-end", cursor: "pointer" }}
+            style={{ alignSelf: "flex-start", cursor: "pointer" }}
             onClick={() => setEditPassword(false)}
           />
           <StyledForm
