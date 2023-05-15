@@ -1,11 +1,11 @@
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
 import Home from "../pages/home/Home";
-import Shop from "../pages/shop/Shop";
-import MyShop from "../pages/MyShop";
+import MyShop from "../pages/shop/MyShop";
 import Profile from "../pages/profile/Profile";
-import Error from "../pages/Error";
+import Error from "../pages/error/Error";
 import Details from "../pages/details/Details";
+import Search from "../pages/search/Search";
 import { ReactComponent as HomeIcon } from "../assets/images/home.svg";
 import { ReactComponent as User } from "../assets/images/user.svg";
 import { ReactComponent as Bag } from "../assets/images/bag.svg";
@@ -21,6 +21,7 @@ export const routes = [
   { path: "/my-shop", page: <MyShop /> },
   { path: "/profile", page: <Profile /> },
   { path: "/*", page: <Error /> },
+  { path: "/search", page: <Search /> },
 ];
 
 export const navbarList = [
