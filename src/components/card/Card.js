@@ -72,20 +72,20 @@ export default function Card({
                           })
                         ).then(() => dispatch(getUserById(user.id)));
                       }}
+                      maxQuantity={quantity > 9 ? true : false}
                     />
-                    {quantity > 1 && (
-                      <StyledMinus
-                        onClick={() =>
-                          dispatch(
-                            decreaseUserProduct({
-                              userId: user.id,
-                              productId: product.id,
-                              size: size,
-                            })
-                          )
-                        }
-                      />
-                    )}
+                    <StyledMinus
+                      onClick={() =>
+                        dispatch(
+                          decreaseUserProduct({
+                            userId: user.id,
+                            productId: product.id,
+                            size: size,
+                          })
+                        )
+                      }
+                      minQuantity={quantity <= 1 ? true : false}
+                    />
                   </QuantitiyContainer>
                   <p>{quantity}</p>
                   <Bin

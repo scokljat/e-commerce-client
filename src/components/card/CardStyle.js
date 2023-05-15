@@ -40,11 +40,6 @@ export const Overlay = styled.div`
   :hover {
     opacity: 1;
   }
-
-  svg {
-    fill: #000;
-    cursor: pointer;
-  }
 `;
 
 export const OverlayContainer = styled.div`
@@ -75,15 +70,23 @@ export const InnerContainer = styled.div`
 `;
 
 export const StyledPlus = styled(Plus)`
+  stroke: ${({ maxQuantity }) => (maxQuantity ? "rgb(0, 0, 0,0.3)" : "#000")};
+  fill: ${({ maxQuantity }) => (maxQuantity ? "rgb(0, 0, 0,0.3)" : "#000")};
+  cursor: ${({ maxQuantity }) => (maxQuantity ? "default" : "pointer")};
+
   :hover {
-    stroke: #f0408d;
-    fill: #f0408d;
+    stroke: ${({ maxQuantity }) => !maxQuantity && "#f0408d"};
+    fill: ${({ maxQuantity }) => !maxQuantity && "#f0408d"};
   }
 `;
 
 export const StyledMinus = styled(Minus)`
+  stroke: ${({ minQuantity }) => (minQuantity ? "rgb(0, 0, 0,0.3)" : "#000")};
+  fill: ${({ minQuantity }) => (minQuantity ? "rgb(0, 0, 0,0.3)" : "#000")};
+  cursor: ${({ minQuantity }) => (minQuantity ? "default" : "pointer")};
+
   :hover {
-    stroke: #f0408d;
-    fill: #f0408d;
+    stroke: ${({ minQuantity }) => !minQuantity && "#f0408d"};
+    fill: ${({ minQuantity }) => !minQuantity && "#f0408d"};
   }
 `;
