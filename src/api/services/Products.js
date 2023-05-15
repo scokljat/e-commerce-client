@@ -16,6 +16,11 @@ const ProductsServices = {
     return axios.get(url);
   },
 
+  getSearchedProducts: (searchedProducts) => {
+    const url = `products/search?search=${searchedProducts}`;
+    return axios.get(url);
+  },
+
   getProductById: (id) => {
     const url = `/products/${id}`;
     return axios.get(url);
