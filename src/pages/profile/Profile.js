@@ -54,6 +54,7 @@ function Profile() {
         confirmedPassword: values.confirmedPassword,
       })
     );
+    setEditPassword(false);
   };
 
   return (

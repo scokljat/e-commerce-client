@@ -174,9 +174,6 @@ const slice = createSlice({
     [getProductById.fulfilled]: (state, action) => {
       state.product = action.payload;
     },
-    [addProductToBag.fulfilled]: (state, action) => {
-      //state.product = action.payload;
-    },
     [getUserProducts.fulfilled]: (state, action) => {
       state.userProducts = action.payload;
     },
