@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import ProductsService from "../../api/services/Products";
+import { showToastMessage } from "../../components/toast/Toast";
 
 export const getProducts = createAsyncThunk("fetchProducts", async () => {
   try {
@@ -7,7 +8,7 @@ export const getProducts = createAsyncThunk("fetchProducts", async () => {
 
     return res.data;
   } catch (error) {
-    console.log(error);
+    showToastMessage("Something went wrong!", "error");
   }
 });
 
@@ -22,7 +23,7 @@ export const getPaginatedProducts = createAsyncThunk(
 
       return res.data;
     } catch (error) {
-      console.log(error);
+      showToastMessage("Something went wrong!", "error");
     }
   }
 );
@@ -35,7 +36,7 @@ export const getFilteredProducts = createAsyncThunk(
 
       return res.data;
     } catch (error) {
-      console.log(error);
+      showToastMessage("Something went wrong!", "error");
     }
   }
 );
@@ -48,7 +49,7 @@ export const getSearchedProducts = createAsyncThunk(
 
       return res.data;
     } catch (error) {
-      console.log(error);
+      showToastMessage("Something went wrong!", "error");
     }
   }
 );
@@ -59,7 +60,7 @@ export const getProductById = createAsyncThunk("getProductById", async (id) => {
 
     return res.data;
   } catch (error) {
-    console.log(error);
+    showToastMessage("Something went wrong!", "error");
   }
 });
 
@@ -68,10 +69,13 @@ export const addProductToBag = createAsyncThunk(
   async (product) => {
     try {
       const res = await ProductsService.addProductToBag(product);
-
+      showToastMessage(
+        "Product has been successfully added to the bag",
+        "success"
+      );
       return res.data;
     } catch (error) {
-      console.log(error);
+      showToastMessage("Something went wrong, try again!", "error");
     }
   }
 );
@@ -84,7 +88,7 @@ export const getUserProducts = createAsyncThunk(
 
       return res.data;
     } catch (error) {
-      console.log(error);
+      showToastMessage("Something went wrong!", "error");
     }
   }
 );
@@ -94,10 +98,10 @@ export const deleteProductFromBag = createAsyncThunk(
   async (id) => {
     try {
       const res = await ProductsService.deleteProductFromBag({ id: id });
-
+      showToastMessage("Product has been successfully deleted", "success");
       return res.data;
     } catch (error) {
-      console.log(error);
+      showToastMessage("Something went wrong, try again!", "error");
     }
   }
 );
@@ -112,7 +116,7 @@ export const deleteAllProductsFromBag = createAsyncThunk(
 
       return res.data;
     } catch (error) {
-      console.log(error);
+      showToastMessage("Something went wrong, try again!", "error");
     }
   }
 );
@@ -125,7 +129,7 @@ export const increaseUserProduct = createAsyncThunk(
 
       return res.data;
     } catch (error) {
-      console.log(error);
+      showToastMessage("Something went wrong, try again!", "error");
     }
   }
 );
@@ -138,7 +142,7 @@ export const decreaseUserProduct = createAsyncThunk(
 
       return res.data;
     } catch (error) {
-      console.log(error);
+      showToastMessage("Something went wrong, try again!", "error");
     }
   }
 );

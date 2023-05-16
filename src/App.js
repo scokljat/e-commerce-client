@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import jwtDecode from "jwt-decode";
+import { Toaster } from "react-hot-toast";
 import { routes, sidebarList } from "./utils/Constants";
 import NavBar from "./components/navbar/NavBar";
 import Shop from "./pages/shop/Shop";
@@ -26,6 +27,7 @@ function App() {
   return (
     <>
       <NavBar />
+      <Toaster position="top-center" reverseOrder={false} />
       <MainContainer
         authPage={
           location.pathname === "/login" || location.pathname === "/register"
