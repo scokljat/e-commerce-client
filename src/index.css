@@ -10,7 +10,7 @@ body {
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 62.5rem #fff inset;
+  -webkit-box-shadow: 0 0 0rem 62.5rem #fff inset;
 }
 
 ::-webkit-scrollbar {
