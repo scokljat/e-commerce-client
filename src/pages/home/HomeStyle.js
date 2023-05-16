@@ -4,14 +4,14 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 0.63rem;
 `;
 
 export const StyledButton = styled.button`
   background: #fff;
-  border: 1px solid #6f6f6f;
+  border: 0.06rem solid #6f6f6f;
   color: #6f6f6f;
-  padding: 20px;
+  padding: 1.2rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
@@ -21,73 +21,57 @@ export const StyledButton = styled.button`
 `;
 
 export const ArrowContainer = styled.a`
-  border: 2px solid #fff;
+  border: 0.12rem solid #fff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: 70px;
-  right: 80px;
+  bottom: 4.3rem;
+  right: 5.6rem;
   cursor: pointer;
 
   svg {
     fill: #fff;
   }
 
-  @media (max-width: 1230px) {
-    right: 70px;
-  }
-
-  @media (max-width: 1160px) {
-    bottom: 70px;
-  }
-
-  @media (max-width: 900px) {
-    bottom: 70px;
-  }
-
   @media (max-width: 870px) {
-    right: 80px;
-    bottom: 140px;
+    right: 5rem;
+    bottom: 8.7rem;
   }
 
   @media (max-width: 783px) {
-    right: 70px;
-    bottom: 140px;
+    right: 4.3rem;
   }
 
   @media (max-width: 750px) {
-    bottom: 200px;
+    bottom: 13.7rem;
   }
 
   @media (max-width: 680px) {
-    bottom: 210px;
+    bottom: 14.3rem;
   }
 
   @media (max-width: 570px) {
-    bottom: 230px;
-  }
-
-  @media (max-width: 530px) {
-    bottom: 230px;
+    bottom: 15.6rem;
   }
 
   @media (max-width: 500px) {
-    right: 70px;
-    bottom: 330px;
+    bottom: 21.8rem;
   }
 
   @media (max-width: 460px) {
-    bottom: 330px;
+    right: 3.8rem;
+    bottom: 21rem;
   }
 
   @media (max-width: 350px) {
-    bottom: 370px;
+    right: 3.7rem;
+    bottom: 23.7rem;
   }
 `;
 
 export const HomeSection = styled.section`
-  margin: 10px 0px;
+  margin: 0.63rem 0rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,11 +87,11 @@ export const HomeSection = styled.section`
 `;
 
 export const Title = styled.h1`
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 
   @media (max-width: 620px) {
-    font-size: 20px;
+    font-size: 1.2rem;
   }
 `;
