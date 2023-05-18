@@ -24,22 +24,6 @@ export const Container = styled.div`
     margin: 0rem;
     margin-bottom: 0.31rem;
   }
-
-  /* @media (max-width: 908px) {
-    width: ${({ detailsPage }) => detailsPage && "40%"};
-  }
-
-  @media (max-width: 800px) {
-    width: ${({ detailsPage }) => detailsPage && "30%"};
-  }
-
-  @media (max-width: 560px) {
-    width: ${({ detailsPage }) => detailsPage && "40%"};
-  }
-
-  @media (max-width: 450px) {
-    width: ${({ detailsPage }) => detailsPage && "50%"};
-  } */
 `;
 
 export const SizeContainer = styled.select`

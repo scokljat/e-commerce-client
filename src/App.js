@@ -9,7 +9,6 @@ import Shop from "./pages/shop/Shop";
 import { getUserById } from "./store/user/userSlice";
 import { getUserProducts } from "./store/products/productSlice";
 import { MainContainer } from "./globalStyle";
-import "./App.css";
 
 function App() {
   const dispatch = useDispatch();

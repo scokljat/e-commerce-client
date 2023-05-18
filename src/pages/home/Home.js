@@ -18,7 +18,7 @@ function Home() {
     <Wrapper>
       <Slider />
       <ArrowContainer href="#new">
-        <ArrowDown style={{ padding: "5px" }} />
+        <ArrowDown style={{ padding: "0.3rem" }} />
       </ArrowContainer>
       <HomeSection id="new">
         <Title>New products</Title>

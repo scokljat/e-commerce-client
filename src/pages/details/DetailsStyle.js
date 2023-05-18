@@ -70,7 +70,7 @@ export const Container = styled.div`
   gap: 0.63rem;
 
   @media (max-width: 800px) {
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
   }
 `;
 
