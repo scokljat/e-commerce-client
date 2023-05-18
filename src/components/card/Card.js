@@ -46,10 +46,10 @@ export default function Card({
         <p>{product?.name.toUpperCase()}</p>
         {location.pathname === "/my-shop" ? (
           <p>
-            {quantity} x {product?.price} BAM
+            {quantity} x {product?.price} USD
           </p>
         ) : (
-          <p>{product?.price} BAM</p>
+          <p>{product?.price} USD</p>
         )}
       </ItemDescription>
       {isLoggedIn && (

@@ -23,7 +23,6 @@ function Profile() {
     defaultValues: {
       firstName: user.firstName,
       lastName: user.lastName,
-      userName: user.userName,
       email: user.email,
     },
   });
@@ -38,7 +37,6 @@ function Profile() {
         id: user.id,
         ...(dirtyFields?.firstName && { firstName: values.firstName }),
         ...(dirtyFields?.lastName && { lastName: values.lastName }),
-        ...(dirtyFields?.userName && { userName: values.userName }),
         ...(dirtyFields?.email && { firstName: values.email }),
       })
     );
@@ -95,19 +93,6 @@ function Profile() {
             />
             {errors.lastName && (
               <ErrorDescription>{errors.lastName.message}</ErrorDescription>
-            )}
-            <StyledInput
-              placeholder="Username"
-              {...register("userName", {
-                required: "Username is required",
-                minLength: {
-                  value: 5,
-                  message: "Username must be at least 5 characters long!",
-                },
-              })}
-            />
-            {errors.userName && (
-              <ErrorDescription>{errors.userName.message}</ErrorDescription>
             )}
             <StyledInput
               placeholder="Email"
@@ -178,7 +163,7 @@ function Profile() {
                 minLength: {
                   value: 8,
                   message:
-                    "COnfirmed password must be at least 8 characters long!",
+                    "Confirmed password must be at least 8 characters long!",
                 },
               })}
             />
@@ -204,7 +189,6 @@ function Profile() {
               {user?.firstName?.toUpperCase()} {user?.lastName?.toUpperCase()}
             </h1>
           </Username>
-          <h3>Username: {user?.userName}</h3>
           <h3>Email: {user?.email}</h3>
           <ButtonContainer>
             <StyledButton onClick={() => setEditFormIsOpen(true)}>

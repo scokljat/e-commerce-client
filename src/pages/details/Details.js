@@ -28,7 +28,7 @@ function Details() {
           onClick={() => navigate(-1)}
         />
         <p>{product?.name?.toUpperCase()}</p>
-        <p style={{ alignSelf: "flex-end" }}>{product?.price} BAM</p>
+        <p style={{ alignSelf: "flex-end" }}>{product?.price} USD</p>
         <Description>{product?.description}</Description>
         {sizeBoxIsOpen ? (
           <SizeBox

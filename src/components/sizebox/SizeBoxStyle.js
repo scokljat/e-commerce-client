@@ -7,10 +7,11 @@ export const Container = styled.div`
   position: ${({ detailsPage }) => !detailsPage && "absolute"};
   top: ${({ detailsPage }) => !detailsPage && "0.63rem"};
   right: ${({ detailsPage }) => !detailsPage && "5.6rem"};
-  width: ${({ detailsPage }) => detailsPage && "30%"};
+  width: ${({ detailsPage }) => detailsPage && "95%"};
   border-radius: 0.31rem;
   display: flex;
   flex-direction: column;
+  gap: 0.06rem;
   justify-content: center;
   align-items: center;
   font-size: 0.9rem;
@@ -24,7 +25,7 @@ export const Container = styled.div`
     margin-bottom: 0.31rem;
   }
 
-  @media (max-width: 908px) {
+  /* @media (max-width: 908px) {
     width: ${({ detailsPage }) => detailsPage && "40%"};
   }
 
@@ -38,13 +39,14 @@ export const Container = styled.div`
 
   @media (max-width: 450px) {
     width: ${({ detailsPage }) => detailsPage && "50%"};
-  }
+  } */
 `;
 
 export const SizeContainer = styled.select`
   height: 1.8rem;
   margin: 0.63rem;
   padding: 0rem 0.63rem;
+  width: ${({ detailsPage }) => detailsPage && "95%"};
 `;
 
 export const Size = styled.option``;

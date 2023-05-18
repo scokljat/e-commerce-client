@@ -8,7 +8,7 @@ export const registerUser = createAsyncThunk("register", async (user) => {
 
     return res.data;
   } catch (error) {
-    showToastMessage("Something went wrong, try again!", "error");
+    showToastMessage(error.response.data, "error");
   }
 });
 
@@ -18,7 +18,7 @@ export const loginUser = createAsyncThunk("login", async (user) => {
 
     return res.data;
   } catch (error) {
-    showToastMessage("Something went wrong, try again!", "error");
+    showToastMessage(error.response.data, "error");
   }
 });
 

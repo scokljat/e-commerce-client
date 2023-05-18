@@ -59,16 +59,6 @@ function Register() {
       {errors.lastName && (
         <ErrorDescription>{errors.lastName.message}</ErrorDescription>
       )}
-      <StyledInput
-        placeholder="Username"
-        {...register("userName", {
-          required: "Username is required",
-          minLength: {
-            value: 5,
-            message: "Username must be at least 5 characters long!",
-          },
-        })}
-      />
       {errors.userName && (
         <ErrorDescription>{errors.userName.message}</ErrorDescription>
       )}

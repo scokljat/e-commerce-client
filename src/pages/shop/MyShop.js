@@ -45,7 +45,8 @@ function MyShop() {
             ))}
           </GridContainer>
           <Price>
-            PRICE IN TOTAL: <PriceNumber>{totalPrice} BAM</PriceNumber>
+            PRICE IN TOTAL:
+            <PriceNumber> {totalPrice.toFixed(2)} BAM</PriceNumber>
           </Price>
           <Stripe totalPrice={totalPrice} userId={user.id} />
         </>

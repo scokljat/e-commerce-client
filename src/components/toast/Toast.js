@@ -6,6 +6,7 @@ export const showToastMessage = (messageText, type) => {
       style: {
         background: "#FFE9E9",
         color: "#82807f",
+        textAlign: "center",
       },
     });
   else
@@ -13,6 +14,7 @@ export const showToastMessage = (messageText, type) => {
       style: {
         background: "#45bd62",
         color: "#fff",
+        textAlign: "center",
       },
     });
 };

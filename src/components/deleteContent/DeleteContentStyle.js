@@ -5,11 +5,15 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1.8rem;
-  padding: 1.8rem;
+  padding: 1.3rem;
 
   p {
     margin: 0rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 1290px) {
+    gap: 1.3rem;
   }
 
   @media (max-width: 980px) {

@@ -42,7 +42,7 @@ function SizeBox({ setSizeBoxIsOpen, productId, detailsPage }) {
         style={{ alignSelf: "flex-end", cursor: "pointer" }}
         onClick={() => setSizeBoxIsOpen(false)}
       />
-      <SizeContainer>
+      <SizeContainer detailsPage={detailsPage}>
         <Size value="none">Choose size...</Size>
         {selectOptions.map((item, index) => (
           <Size value={item} key={index}>

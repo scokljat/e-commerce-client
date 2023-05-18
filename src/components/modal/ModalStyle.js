@@ -20,7 +20,7 @@ export const Content = styled.div`
   border-radius: 0.5rem;
   cursor: default;
   width: 30%;
-  height: 35%;
+  height: 30%;
 
   @media (max-width: 980px) {
     height: 25%;
@@ -36,6 +36,5 @@ export const Content = styled.div`
 
   @media (max-width: 420px) {
     width: 70%;
-    height: 30%;
   }
 `;

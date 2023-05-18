@@ -66,6 +66,12 @@ export const TotalProducts = styled.div`
     margin: 0rem;
     color: #fff;
   }
+
+  @media (max-width: 400px) {
+    width: 1.3rem;
+    height: 1.3rem;
+    left: 0.7rem;
+  }
 `;
 
 export const InnerContainer = styled.div`
