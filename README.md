@@ -8,6 +8,8 @@
 
 An e-commerce web app for online shopping with stripe payment form.
 
+![homescreen](/src/assets/images/home_screen.png)
+
 ## Getting started
 
 In the project directory, you can run:
